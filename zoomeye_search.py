@@ -41,4 +41,4 @@ def zoomeye_search(word):
 			return title_result
 
 	except Exception as ex:
-		print("[-] " + ex)
+		print(ex)

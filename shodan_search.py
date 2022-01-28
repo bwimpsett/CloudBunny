@@ -31,11 +31,12 @@ def shodan_search(word):
 		query = ''
 
 		if userAccount['plan'] == 'oss':
-			warnuser = '''[*] It looks like you\'re on the free account.
-			In order to search with filters you will need to upgrade.
-			The best we can do is give you a filterless search for the title.
-			This does increase the chances of false positives.
-			Still want to continue with this part of the search? (Y/N):'''
+			warnuser = '''
+[*] It looks like you\'re on the free account.
+In order to search with filters you will need to upgrade.
+The best we can do is give you a filterless search for the title.
+This does increase the chances of false positives.
+Still want to continue with this part of the search? (Y/N):'''
 			print(warnuser)
 			
 			confirmation = input()
@@ -62,7 +63,7 @@ def shodan_search(word):
 		if len(title_results) > 0:
 			return set(title_results)
 	except Exception as ex:
-		print('[-] ' + ex)
+		print(ex)
 
 def result_search(list_host):
 	table = PrettyTable(['IP Address','ISP','Ports','Last Update'])
@@ -73,4 +74,4 @@ def result_search(list_host):
 			table.add_row([host_result['ip_str'], host_result['isp'], host_result['ports'], host_result['last_update']])
 			print(table)
 		except Exception as ex:
-			print('[-] ' + ex)
+			print(ex)

@@ -119,7 +119,7 @@ def main():
 	title =	search(args.url).encode('utf-8')
 	host = split_url(args.url)
 	noargs = not args.shodan and not args.censys and not args.zoomeye
-	searchCensys = bool(args.censys or args.cc or args.cr or args.ccp or args.ccr)
+	searchCensys = bool(args.censys or args.cc or args.ct or args.ccp or args.ccr)
 
 	ccr = args.ccr
 	if not ccr:
@@ -148,7 +148,7 @@ def main():
 					for censys_target in censys_targets:
 						if not censys_target in resolver:
 							resolver.append(censys_target)
-			if not args.cr:
+			if not args.ct:
 				print("[+] Looking for certificates on Censys...")
 				censys_target_certs = censys_search_certs(host, ccp, ccr)
 				if not censys_target_certs is None:

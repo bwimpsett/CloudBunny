@@ -23,7 +23,7 @@ def split_url(url):
 
 def censys_search(title):
     try:
-        api = CensysHosts(api_id=UID, api_secret=TOKEN)
+        api = CensysHosts(api_id = UID, api_secret = TOKEN)
         query_text = f'services.http.response.html_title: "{title}"'
         query = api.search(query_text)
 
@@ -35,7 +35,7 @@ def censys_search(title):
         if len(title_result) > 0:
             return set(title_result)
     except Exception as ex:
-        print('[-] ' + ex)
+        print(ex)
 
 '''The problem with this function is there is often too much data coming back.
     A search to a local univerity returned over 500 results!  
@@ -70,4 +70,4 @@ def censys_search_certs(host, pg, mr):
 
             return set(host_result)
     except Exception as ex:
-        print('[-] ' + ex)
+        print(ex)

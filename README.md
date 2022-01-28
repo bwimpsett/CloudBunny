@@ -1,5 +1,26 @@
 # CloudBunny 2.0
 
+============================================================================================
+UPDATE: NEW IN CLOUDBUNNY 2.0
+============================================================================================
+
+* Fixed issues with running the code.
+* Added page and result number options for Censys search. (1)
+* Along with the ability to just search by certificate or by title. 
+* Added ability to authenticate with just your API key in Zoomeye.
+* Added option for free account users on Shodan to search. (2)
+* General code cleanup.
+
+(1) I made the number of certificate results an option because search usually produce a lot of
+results.  A search of a local university returned over 1000. The problem is the certificates are
+then put into a Censys host search.  Anything over 10 seems to time out the server.  If the user wants 
+to do over 10, then the certificates are passed through in chunks of 10.  So, there are multiple searches performed.
+(2) Free account user are not allowed to search with filters on the Shodan API (e.g. Title: "Some site").
+For free users, the program will search unfilted (e.g. "Some Site").  Since this could produce false positives, I 
+have included a warning message allowing the user to back out of the Shodan search.
+
+============================================================================================
+
 CloudBunny is a tool to capture the origin server that uses a WAF as a proxy or protection.
 
 You can read more about the tool here: https://tinyurl.com/y8p48wb3
@@ -10,7 +31,7 @@ You can read more about the tool here: https://tinyurl.com/y8p48wb3
 
 # How works
 
-In this tool we used three search engines to search domain information: Shodan, Censys and Zoomeye. To use the tools you need the API Keys, you can pick up the following links:
+In this tool, we use three search engines to search domain information: Shodan, Censys and Zoomeye.  To use this program, you need an API Key from one of the three services. (Don't worry all have free accounts :D ) You can find the API keys at the following links:
 
 <pre>
 <b>Shodan</b> - https://account.shodan.io/
@@ -18,9 +39,9 @@ In this tool we used three search engines to search domain information: Shodan, 
 <b>ZoomEye</b> - https://www.zoomeye.org/profile
 </pre>
 
-<b>NOTE</b>: In Zoomeye, you can either enter your username and password OR your api key.
-
 After that you need to put the credentials in the <b>api.conf</b> file.
+
+<b>NOTE</b>: In Zoomeye, for api.conf, you can either: enter your username and password OR your api key.  You only need one.
 
 Install the requirements:
 
@@ -30,15 +51,15 @@ $ sudo pip install -r requirements.txt
 
 # Usage
 
-By default the tool searches on all search engines (you can set this up by arguments), but you need to put the credentials as stated above. After you have loaded the credentials and installed the requirements, execute:
+After you have loaded your credentials and installed the requirements, execute:
 
 <pre>
 $ python cloudbunny.py -u securityattack.com.br
 </pre>
 
-<i>Note: defaults are search with all 3 search engines.
-For Censys certificate searches, to result are limited to 10 by
-default.  This can be altered via a command line switch.  See below.</i>
+<i>Note: defaults are: search with all three search engines, 
+perform both a certificate and title search with Censys, and limit Censys certificate results to 10.
+This can be altered via command line switchrd.  See below.</i>
 
 To search with just Shodan.io:
 

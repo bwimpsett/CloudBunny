@@ -8,6 +8,7 @@
 * Added ability to authenticate with just your API key in Zoomeye.
 * Added option for free account users on Shodan to search. (2)
 * General code cleanup.
+* Comming soon: the ability to read input files of domains list and save output to file.
 
 (1) I made the number of certificate results an option because search usually produce a lot of
 results.  A search of a local university returned over 1000. The problem is the certificates are

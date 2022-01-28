@@ -44,7 +44,10 @@ def censys_search(title):
 def censys_search_certs(host, pg, mr):
     try:
         certificates = CensysCertificates(api_id = UID, api_secret = TOKEN)
-        cert_query = certificates.search(f"parsed.names: {host} AND tags.raw: trusted AND NOT parsed.names: cloudflaressl.com", page = pg, max_records = mr)       
+        if mr == 0:
+            cert_query = certificates.search(f"parsed.names: {host} AND tags.raw: trusted AND NOT parsed.names: cloudflaressl.com")    
+        else:
+            cert_query = certificates.search(f"parsed.names: {host} AND tags.raw: trusted AND NOT parsed.names: cloudflaressl.com", page = pg, max_records = mr)       
         results = set([cert['parsed.fingerprint_sha256'] for cert in cert_query])
         rc = len(results)
         if rc > 0:

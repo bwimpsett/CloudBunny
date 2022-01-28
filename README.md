@@ -13,7 +13,8 @@
 (1) I made the number of certificate results an option because search usually produce a lot of
 results.  A search of a local university returned over 1000. The problem is the certificates are
 then put into a Censys host search.  Anything over 10 seems to time out the server.  If the user wants 
-to do over 10, then the certificates are passed through in chunks of 10.  So, there are multiple searches performed.
+to do over 10, then the certificates are passed through in chunks of 10.  So, there are multiple searches performed.<br />
+
 (2) Free account user are not allowed to search with filters on the Shodan API (e.g. Title: "Some site").
 For free users, the program will search unfilted (e.g. "Some Site").  Since this could produce false positives, I 
 have included a warning message allowing the user to back out of the Shodan search.

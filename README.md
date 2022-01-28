@@ -1,8 +1,6 @@
 # CloudBunny 2.0
 
-============================================================================================
-UPDATE: NEW IN CLOUDBUNNY 2.0
-============================================================================================
+# UPDATE: NEW IN CLOUDBUNNY 2.0
 
 * Fixed issues with running the code.
 * Added page and result number options for Censys search. (1)
@@ -19,7 +17,7 @@ to do over 10, then the certificates are passed through in chunks of 10.  So, th
 For free users, the program will search unfilted (e.g. "Some Site").  Since this could produce false positives, I 
 have included a warning message allowing the user to back out of the Shodan search.
 
-============================================================================================
+# Summary
 
 CloudBunny is a tool to capture the origin server that uses a WAF as a proxy or protection.
 
@@ -29,7 +27,7 @@ You can read more about the tool here: https://tinyurl.com/y8p48wb3
 <img src="https://i.imgur.com/CyGo02V.gif">
 </p>
 
-# How works
+# Setup
 
 In this tool, we use three search engines to search domain information: Shodan, Censys and Zoomeye.  To use this program, you need an API Key from one of the three services. (Don't worry all have free accounts :D ) You can find the API keys at the following links:
 
@@ -80,10 +78,16 @@ To search Censys with more records:
 $ python cloudbunny.py -u somesite.com -ccr 50
 </pre>
 
-To search Censys with 20 results starting with the 7th page:
+To search Censys certificates with 20 results starting with the 7th page:
 
 <pre>
 $ python cloudbunny.py -u somesite.com -ccr 20 -ccp 7
+</pre>
+
+To search all Censys certificates:
+
+<pre>
+$ python cloudbunny.py -u somesite.com -ccr 0
 </pre>
 
 To search only Censys with title:

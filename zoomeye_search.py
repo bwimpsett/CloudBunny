@@ -5,9 +5,11 @@ from __future__ import print_function
 import requests
 import configparser
 import urllib.parse
+import os
 
 config = configparser.ConfigParser()
-config.read("api.conf")
+config.read(os.path.join(os.path.dirname(__file__), "api.conf"))
+
 username = config.get('zoomeye', 'username')
 password = config.get('zoomeye', 'password')
 apikey = config.get('zoomeye', 'token')

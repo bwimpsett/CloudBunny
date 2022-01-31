@@ -7,9 +7,11 @@ from prettytable import PrettyTable
 from shodan import Shodan
 import configparser
 import requests
+import os
 
 config = configparser.ConfigParser()
-config.read("api.conf")
+config.read(os.path.join(os.path.dirname(__file__), "api.conf"))
+
 token = config.get('shodan', 'token')
 api = Shodan(token)
 

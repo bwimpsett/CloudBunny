@@ -8,9 +8,11 @@ from censys.search import CensysHosts
 import configparser
 import re
 import math
+import os
 
 config = configparser.ConfigParser()
-config.read("api.conf")
+config.read(os.path.join(os.path.dirname(__file__), "api.conf"))
+
 TOKEN = config.get('censys', 'token')
 UID = config.get('censys', 'uid')
 

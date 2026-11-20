@@ -2,6 +2,7 @@ beautifulsoup4
 configparser
 PrettyTable
 cfscrape
+urllib3<2
 argparse
 requests
 censys

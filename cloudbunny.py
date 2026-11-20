@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from __future__ import print_function
 from bs4 import BeautifulSoup
 from zoomeye_search import *
@@ -11,13 +8,11 @@ import cfscrape
 import argparse
 import re
 
-# “Never underestimate the determination of a kid who is time-rich and cash-poor.”
-
 def banner():
 
 	color = ['\033[95m' , '\033[96m', '\033[36m' , '\033[94m' , '\033[92m' , '\033[93m' , '\033[91m']
 
-	print(choice(color) + ''' 
+	print(choice(color) + r'''
                _                                  
               (`  ).                   _           
              (     ).              .:(`  )`.       
@@ -53,14 +48,14 @@ CloudBunny 2.0 - Bypass WAF with Search Engines
 V2 Author: Brian Wimpsett (@bwimpsett)
 Author: Eddy Oliveira (@Warflop)
 https://github.com/bwimpsett
-https://github.com/Warflop \033[0m
-    ''')
+https://github.com/Warflop
+    ''' + '\033[0m')
 
 def banner_footer():
 
 	color = ['\033[95m' , '\033[96m', '\033[36m' , '\033[94m' , '\033[92m' , '\033[93m' , '\033[91m']
 
-	print(choice(color) + ''' 
+	print(choice(color) + r'''
 
   /\\=//\-"""-.        
  / /6 6\ \     \        
@@ -69,8 +64,7 @@ def banner_footer():
     "" ""  """       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     We may have some false positives :)
-\033[0m
-	''')
+	''' + '\033[0m')
 
 def search(url):
 

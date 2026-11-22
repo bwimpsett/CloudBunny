@@ -2,6 +2,8 @@
 
 # UPDATE: NEW IN CLOUDBUNNY 2.0
 
+# Note: For authorized security auditing and WAF testing only.
+
 * Fixed issues with running the code.
 * Added page and result number options for Censys search. (1)
 * Along with the ability to just search by certificate or by title. 
